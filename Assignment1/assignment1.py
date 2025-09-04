@@ -70,6 +70,28 @@ def update_contact(contacts_db,contact_id,field_updates):
     contacts_db[contact_id].update(field_updates)
     contacts_db[contact_id].update({'last_modified': datetime.today().strftime('%Y-%m-%d')})
 
+def delete_contact(contacts_db, contact_id):
+    try: contacts_db.pop(contact_id)
+    except: return False
+    else: return True
+
+def merge_contacts(contacts_db, contact_id1, contact_id2):
+    newid=len(contacts_db)+1
+    conflict=0
+    mergecontact={newid:dict()}
+    for x,y in contacts_db[contact_id1],contacts_db[contact_id2]:
+        for a,b,c,d in x.items() and y.items():
+            if b == d:
+                mergecontact[newid].update({a,b})
+            else:
+                while conflict != "1" or conflict != "2"
+                    conflict=input("Conflict in field: ",a,"/n Value 1: ",b,"/n Value 2: ",d,"/n Enter a number: ")
+                if conflict == "1":
+                    mergecontact[newid].update({a,b})
+                elif conflict == "2":
+                    mergecontact[newid].update({c,d})
+    return mergecontact
+        
 def run_contact_manager():
     pass
 if __name__ == "__main__":
