@@ -42,6 +42,34 @@ def list_all_contacts(contacts_db):
         print("Phone = ",y['phone'])
         print()
 list_all_contacts(contacts_db)
+
+def search_contacts_by_name(contacts_db, search_term):
+    group=dict()
+    for x,y in contacts_db.items():
+        if y['first_name'] or y['last_name'] == search_term:
+            group[x] = y
+    return group
+
+print(search_contacts_by_name(contacts_db,"Samuel"))
+
+def search_contacts_by_category(contacts_db,category):
+    group=dict()
+    for x,y in contacts_db.items():
+        if y['category']== category:
+            group[x] = y
+    return group
+
+def find_contact_by_phone(contacts_db, phone_number):
+    group=dict()
+    for x,y in contacts_db.items():
+        if y['phone'] == phone_number:
+            return x,y
+    return (None,None)
+
+def update_contact(contacts_db,contact_id,field_updates):
+    contacts_db[contact_id].update(field_updates)
+    contacts_db[contact_id].update({'last_modified': datetime.today().strftime('%Y-%m-%d')})
+
 def run_contact_manager():
     pass
 if __name__ == "__main__":
