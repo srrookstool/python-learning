@@ -84,7 +84,7 @@ def merge_contacts(contacts_db, contact_id1, contact_id2):
             if b == d:
                 mergecontact[newid].update({a,b})
             else:
-                while conflict != "1" or conflict != "2"
+                while conflict != "1" or conflict != "2":
                     conflict=input("Conflict in field: ",a,"/n Value 1: ",b,"/n Value 2: ",d,"/n Enter a number: ")
                 if conflict == "1":
                     mergecontact[newid].update({a,b})
