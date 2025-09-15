@@ -131,8 +131,6 @@ def exercise_2_1():
     x = np.arange(len(sizes))
     width = 0.35
     ax1.bar(x - width/2, python_times, width, label='Python List', color='coral')
-    Part 3: Fun with Array Operations - Digital Art! (15 minutes)
-    Exercise 3.1: Create Pixel Art with NumPy
     ax1.bar(x + width/2, numpy_times, width, label='NumPy Array', color='skyblue')
     ax1.set_xlabel('Array Size')
     ax1.set_ylabel('Time (seconds)')
