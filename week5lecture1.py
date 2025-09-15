@@ -164,13 +164,13 @@ def practice_2b_intermediate():
         has_digit = any(char.isdigit() for char in password)
         
         # TODO 2: Check if password has any uppercase
-        has_upper = None  # Replace with any(char.isupper() for char in password)
+        has_upper = any(char.isupper() for char in password)  # Replace with any(char.isupper() for char in password)
         
         # TODO 3: Check if password has any lowercase
-        has_lower = None  # Replace with appropriate check
+        has_lower = any(char.islower() for char in password)  # Replace with appropriate check
         
         # TODO 4: Check if length is at least 8
-        long_enough = None  # Replace with len(password) >= 8
+        long_enough = len(password) >=8  # Replace with len(password) >= 8
         
         print(f"  Has digit: {has_digit}")
         print(f"  Has uppercase: {has_upper}")
@@ -218,13 +218,13 @@ def practice_2c_advanced():
             documents.append(filename)
         elif lower_name.endswith(('.jpg', '.png', '.gif', '.jpeg')):
             # TODO: Add to images list
-            pass  # Replace with images.append(filename)
+            images.append(filename)
         elif lower_name.endswith(('.py', '.js', '.html', '.css')):
             # TODO: Add to code list
-            pass  # Replace with code.append(filename)
+            code.append(filename)
         else:
             # TODO: Add to other list
-            pass  # Replace with other.append(filename)
+            other.append(filename)
     
     print("📁 File Categories:")
     print(f"Documents: {documents}")
@@ -250,15 +250,15 @@ def practice_3a_beginner():
     
     # TODO 1: Replace "cat" with "dog"
     # Use: story.replace("cat", "dog")
-    dog_story = None  # Replace None
+    dog_story = story.replace('cat','dog')  # Replace None
     
     # TODO 2: Replace "mat" with "rug"
     # Use the dog_story from above
-    final_story = None  # Replace None
+    final_story = dog_story.replace('mat','rug') # Replace None
     
     # TODO 3: Split the story into sentences (split on ". ")
     # Use: final_story.split(". ")
-    sentences = None  # Replace None
+    sentences = final_story.split(". ")  # Replace None
     
     print(f"After replacing cat: {dog_story}")
     print(f"Final story: {final_story}")
@@ -285,16 +285,16 @@ def practice_3b_intermediate():
     employees = []
     for line in csv_data:
         # TODO 1: Split each line by comma
-        fields = None  # Replace with line.split(",")
+        fields = line.split(",")  # Replace with line.split(",")
         
         # TODO 2: Create a formatted string
         # Format: "FirstName LastName (Age) - Job"
         if fields:  # Check if fields exists
-            formatted = None  # Replace with f"{fields[0]} {fields[1]} ({fields[2]}) - {fields[3]}"
+            formatted = f"{fields[0]} {fields[1]} ({fields[2]}) - {fields[3]}"  # Replace with f"{fields[0]} {fields[1]} ({fields[2]}) - {fields[3]}"
             employees.append(formatted)
     
     # TODO 3: Join all employees with newline
-    employee_list = None  # Replace with "\n".join(employees)
+    employee_list = "\n".join(employees)  # Replace with "\n".join(employees)
     
     print("Employee Directory:")
     print(employee_list)
@@ -338,10 +338,10 @@ def practice_3c_advanced():
     email = email.replace("{name}", appointment["name"])
     email = email.replace("{date}", appointment["date"])
     # TODO: Continue replacing other placeholders
-    # email = email.replace("{time}", appointment["time"])
-    # email = email.replace("{location}", appointment["location"])
-    # email = email.replace("{code}", appointment["code"])
-    # email = email.replace("{company}", appointment["company"])
+    email = email.replace("{time}", appointment["time"])
+    email = email.replace("{location}", appointment["location"])
+    email = email.replace("{code}", appointment["code"])
+    email = email.replace("{company}", appointment["company"])
     
     print(f"Email for {appointment['name']}:")
     print(email)
@@ -367,15 +367,15 @@ def practice_4a_beginner():
     
     # TODO 1: Create f-string with name and age
     # Format: "Name: John Doe, Age: 25"
-    info1 = None  # Replace with f"Name: {name}, Age: {age}"
+    info1 = f"Name: {name}, Age: {age}"  # Replace with f"Name: {name}, Age: {age}"
     
     # TODO 2: Format height to 1 decimal place
     # Format: "Height: 5.9 feet"
-    info2 = None  # Replace with f"Height: {height:.1f} feet"
+    info2 = f"Height: {height:.1f} feet"  # Replace with f"Height: {height:.1f} feet"
     
     # TODO 3: Format weight to no decimal places
     # Format: "Weight: 171 lbs"
-    info3 = None  # Replace with f"Weight: {weight:.0f} lbs"
+    info3 = f"Weight: {weight:.0f} lbs"  # Replace with f"Weight: {weight:.0f} lbs"
     
     print(info1)
     print(info2)
@@ -402,17 +402,17 @@ def practice_4b_intermediate():
     
     for student in students:
         # TODO 1: Format name left-aligned in 15 characters
-        name_formatted = None  # Replace with f"{student['name']:<15}"
+        name_formatted = f"{student[name]:<15}"  # Replace with f"{student['name']:<15}"
         
         # TODO 2: Format score right-aligned with 1 decimal
-        score_formatted = None  # Replace with f"{student['score']:>10.1f}"
+        score_formatted = f"{student['score']:>10.1f}"  # Replace with f"{student['score']:>10.1f}"
         
         # TODO 3: Format grade right-aligned in 10 characters
-        grade_formatted = None  # Replace with f"{student['grade']:>10}"
+        grade_formatted = f"{student['grade']:>10}"  # Replace with f"{student['grade']:>10}"
         
         # TODO 4: Combine and print all formatted parts
         # Uncomment the next line when ready
-        # print(f"{name_formatted}{score_formatted}{grade_formatted}")
+        print(f"{name_formatted}{score_formatted}{grade_formatted}")
     
     # Calculate and display average
     avg_score = sum(s["score"] for s in students) / len(students)
