@@ -18,8 +18,8 @@ def practice_1b():
     # 3. Print the matched text
     pattern = "2024"
     result = re.search(pattern, text)
-    print(f"Start position: {result.start()}")
-    print(f"Matched text: {result.group()}")
+    print(f"Start position: {result.start()}") # pyright: ignore[reportOptionalMemberAccess]
+    print(f"Matched text: {result.group()}") # pyright: ignore[reportOptionalMemberAccess]
     
 
 # Create a function that checks if a word exists in text
@@ -79,12 +79,12 @@ def practice_3c():
     # syntax: re.sub(pattern, repl, string, count=0, flags=0)
     # usage: replace parts of a string that match a specific regular expression patter
     # Keep only words and spaces
-    print(re.sub(r"\W","",text, count=0,flags=0))
+    print(re.sub(r"[^\w\s]","",text, count=0,flags=0))
     
 def practice_4a():
     # Check if string starts with "Python"
     texts = ["Python is fun", "I love Python", "Python"]
-    pattern = r"____"  # Fill in pattern to match strings starting with Python
+    pattern = r"^Python"  # Fill in pattern to match strings starting with Python
 
     for text in texts:
         if re.search(pattern, text):
@@ -95,6 +95,7 @@ def practice_4b():
     test_strings = ["12345", "123abc", "456"]
     # Write pattern to match strings that are entirely digits
     # Use ^ and $ anchors with \d+
+    pattern = r"^\d+$"
     
 def practice_4c():
     # Find all three-letter words ending in 'at'
@@ -102,11 +103,12 @@ def practice_4c():
     # Use dot metacharacter and word boundaries
     # Word boundary: \b, can be at the beginning and end
     # Expected: ['cat', 'sat', 'mat', 'bat']
+    pattern = r"at\b"
     
 def practice_5a():
     # Find all words (one or more letters)
     text = "Hello 123 world 456"
-    pattern = r"[a-zA-Z]___"  # Fill in the quantifier
+    pattern = r"[a-zA-Z]+"  # Fill in the quantifier
 
     matches = re.findall(pattern, text)
     print(f"Words: {matches}")
@@ -118,6 +120,7 @@ def practice_5b():
     # Write pattern using ? for optional area code
     # For a group of characters to be optional inside an re pattern
     # use () to group the set of characters
+    pattern = r"(\d?)"
     
 def practice_5c():
     # Extract content between quotes (non-greedy)
@@ -125,6 +128,7 @@ def practice_5c():
     # Write pattern to extract text between quotes
     # Use non-greedy matching
     # Expected: ['hello', 'goodbye']
+    pattern = r"\".*?\""
     
 practice_1a()
 practice_1b()
@@ -135,9 +139,9 @@ practice_2c()
 practice_3a()
 practice_3b()
 practice_3c()
-#practice_4a()
-#practice_4b()
-#practice_4c()
-#practice_5a()
-#practice_5b()
-#practice_5c()
+practice_4a()
+practice_4b()
+practice_4c()
+practice_5a()
+practice_5b()
+practice_5c()
