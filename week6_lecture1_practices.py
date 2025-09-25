@@ -134,9 +134,7 @@ practice 5_b
 url = "https://www.example.com/path/to/page"
 pattern = r"(https?)://([^/]+)(.*)"
 match = re.search(pattern,url)
-print(f"{match.group(0)} found at {match.group(0).span()}"
-print(f"{match.group(1)} found at {match.group(1).span()}")
-print(f"{match.group(2)}")
+print(f"{match.group(0)} found at {match.group(0)}") # pyright: ignore[reportOptionalMemberAccess]
 # Use the match object to extract:
 # - Protocol (http or https)
 # - Domain
