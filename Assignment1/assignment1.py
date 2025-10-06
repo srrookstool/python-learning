@@ -1,4 +1,5 @@
 from datetime import datetime
+
 def create_contact():
     first_name = input("Enter first name: ")
     last_name = input("Enter last name: ")
@@ -11,6 +12,7 @@ def create_contact():
     category = input("Category of contact: ")
     notes = input("Contact notes: ")
     return {'first_name':first_name,'last_name':last_name,'phone':phone,'email':email,'address':{'street':street,'city':city,'state':state,'zip_code':zip_code},'category':category,'notes':notes,'created_date':datetime.today().strftime('%Y-%m-%d'),'last_modified':datetime.today().strftime('%Y-%m-%d')}
+
 #contact=create_contact()
 sam={'first_name':'Samuel','last_name':'Rookstool','phone':'9943042358','email':'srrookstool01@indianatech.net','address':{'street':'1653 Abby Dr','city':'Fort Wayne','state':'IN','zip_code':'46803'},'category':'work','notes':'This is not real information','created_date':'2025-08-25','last_modified':'2025-08-25'}
 
@@ -19,11 +21,15 @@ def add_contact(contacts_db,contact_data):
     id = len(contacts_db)+1
     contacts_db[id] = contact_data
     return id
+
 add_contact(contacts_db,sam)
 print(contacts_db)
+
 def display_contact(contacts_db, contact_id):
-    try: contact = contacts_db[contact_id]
-    except: return False
+    try: 
+        contact = contacts_db[contact_id]
+    except: 
+        return False
     else:
         print('Name: ', contact['first_name'],contact['last_name'])
         print('Phone: ', contact['phone'])
@@ -94,5 +100,6 @@ def merge_contacts(contacts_db, contact_id1, contact_id2):
         
 def run_contact_manager():
     pass
+
 if __name__ == "__main__":
     run_contact_manager()
