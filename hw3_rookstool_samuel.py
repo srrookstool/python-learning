@@ -1,4 +1,5 @@
 import re
+
 def format_receipt(items, prices, quantities):
     print("=" * 40)
     print(f"{"Item":<20} {"Qty":^5} {"Price":>8}")
@@ -12,6 +13,7 @@ items = ["Coffee", "Sandwich", "Cookie"]
 prices = [3.50, 8.99, 2.00]
 quantities = [2, 1, 3]
 print(format_receipt(items, prices, quantities))
+
 def process_user_data(raw_data):
     cleaned_name = raw_data['name'].strip().title()
     cleaned_email= raw_data['email'].lower().replace(" ","")
@@ -88,10 +90,9 @@ def find_patterns(text):
     patterns = {
     'integers': r'\d+', # Fill in pattern
     'decimals': r'\d\.\d', # Fill in pattern
-    'words_with_digits': r'\w+', # Fill in pattern
-    'capitalized_words': r'^[A-Z]\w+', # Fill in pattern
+    'words_with_digits': r'\w*\d\w*', # Fill in pattern
+    'capitalized_words': r'^[A-Z][a-z]+', # Fill in pattern
     'all_caps_words': r'[A-Z]+', # Fill in pattern
-    'repeated_chars': r'' # Fill in pattern
+    'repeated_chars': r'(\w)\1+' # Fill in pattern
     }
     # Your code here
-    pass
