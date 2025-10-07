@@ -1,0 +1,16 @@
+1. Grading Rubric:
+   * String methods:          
+    * Receipt Formatting     10 out of 10
+    * Data Processing        12 out of 12
+    * Text Analysis          0 out of 13
+   * Regular Expression:     
+    * Pattern Finding        8 out of 10
+    * Format Validation      0 out of 12
+    * Information Extraction 0 out of 13
+   * Combined:                
+    * Cleaning Pipeline      0 out of 10
+    * Smart Replace          0 out of 10
+   * Application:            
+    * Log Analysis           0 out of 10 
+
+Total: 30 out of 100
