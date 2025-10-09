@@ -27,5 +27,3 @@ def get_most_expensive_item(order):
         if (item[1][1] * item[1][0]) > (most_expensive[1][1] * most_expensive[1][0]):
             most_expensive = item
     return most_expensive[0]
-
-def 
