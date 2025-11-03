@@ -190,43 +190,51 @@ class Duration:
         # TODO: Validate minutes and seconds (0-59)
         # TODO: Store values
         # Hint: Convert overflow (e.g., 90 seconds = 1 min 30 sec)
-        if seconds >= 60:
+        while seconds >= 60:
             minutes +=1
             seconds = (seconds - 60)
-        
-        pass
+        while minutes >=60:
+            hours +=1
+            minutes = (minutes - 60)
+        self.hours = hours
+        self.minutes = minutes
+        self.seconds = seconds
     @property
     def total_seconds(self):
-        # TODO: Return total seconds
-        pass
+        return (self.hours * 3600) + (self.minutes * 60) + self.seconds
     def __str__(self):
-        # TODO: Format as "Xh Ym Zs" (skip zeros)
-        # Examples: "2h 30m", "45s", "1h 15s"
-        pass
+        string = ""
+        if self.hours > 0:
+            string += f"{self.hours}h "
+        if self.minutes > 0:
+            string += f"{self.minutes}m "
+        if self.seconds > 0:
+            string += f"{self.seconds}s"
+        return string
     def __repr__(self):
         # TODO: Return "Duration(h, m, s)"
-        pass
+        return f"Duration({self.hours}, {self.minutes}, {self.seconds})"
     def __add__(self, other):
-        # TODO: Add two durations
-        # Return new Duration
-        pass
+        return Duration(0,0,self.total_seconds + other.total_seconds)
     def __sub__(self, other):
-        # TODO: Subtract durations
-        # Return Duration(0,0,0) if negative
-        pass
+        s = (self.total_seconds - other.total_seconds)
+        if s < 0:
+            return Duration(0,0,0)
+        else: return Duration(0,0,s)
     def __mul__(self, multiplier):
-        # TODO: Multiply by integer
-        # Return new Duration
-        pass
+        return Duration(0,0,self.total_seconds * multiplier)
     def __eq__(self, other):
-        # TODO: Check equality
-        pass
+        if self.total_seconds == other.total_seconds:
+            return True
+        else: return False
     def __lt__(self, other):
-        # TODO: Check if shorter
-        pass
+        if self.total_seconds < other.total_seconds:
+            return True
+        else: return False
     def __le__(self, other):
-        # TODO: Check if shorter or equal
-        pass
+        if self.total_seconds <= other.total_seconds:
+            return True
+        else: return False
 # Test your code
 if __name__ == "__main__":
     # Create durations
